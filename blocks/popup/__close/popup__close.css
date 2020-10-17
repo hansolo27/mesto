@@ -1,0 +1,4 @@
+.popup__close{
+  display: block;
+  align-self: flex-end;
+}

@@ -1,0 +1,10 @@
+.profile__append{
+  display: block;
+}
+
+@media screen and (min-width:320px) and (max-width:600px){
+  .profile__append{
+    width: 17px;
+    height: 17px;
+  }
+}

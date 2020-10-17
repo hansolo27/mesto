@@ -1,0 +1,8 @@
+.profile__name{
+  display:flex;
+}
+@media screen and (max-width:882px){
+  .profile__name{
+    flex-direction:column;
+  }
+}

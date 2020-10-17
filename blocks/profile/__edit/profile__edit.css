@@ -1,0 +1,9 @@
+.profile__edit{
+  padding: 7px;
+}
+
+@media screen and (min-width:320px) and (max-width:600px){
+  .profile__edit{
+    padding: 4px;
+  }
+}

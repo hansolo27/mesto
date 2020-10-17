@@ -1,0 +1,9 @@
+.profile__row{
+  display:flex;
+  justify-content: space-between;
+}
+@media screen and (max-width:882px){
+  .profile__row{
+    flex-direction:column;
+  }
+}
