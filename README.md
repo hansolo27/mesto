@@ -6,7 +6,7 @@
 
 
 
-* [Ссылка на сайт](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+* [Ссылка на сайт]( https://hansolo27.github.io/mesto/)
 
 
 
