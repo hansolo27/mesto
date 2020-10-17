@@ -5,6 +5,9 @@
   display:flex;
   justify-content: center;
 }
+.profile__addborder:hover{
+  opacity: 60%;
+}
 
 @media screen and (min-width:320px) and (max-width:600px){
   .profile__addborder{

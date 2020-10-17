@@ -9,6 +9,9 @@
   align-items: center;
   border-radius: 2px;
 }
+.popup__save:hover{
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 @media screen and (min-width:320px) and (max-width:600px){
   .popup__save{

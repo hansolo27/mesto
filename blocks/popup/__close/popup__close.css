@@ -2,3 +2,7 @@
   display: block;
   align-self: flex-end;
 }
+.popup__close:hover{
+  transform: rotate(45deg);
+  opacity: 60%;
+}
