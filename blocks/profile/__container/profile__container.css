@@ -2,8 +2,3 @@
   align-self: center;
   display: flex;
 }
-@media screen and (max-width:882px){
-  .profile__container{
-    
-  }
-}

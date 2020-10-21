@@ -6,7 +6,7 @@ JS.
 
 
 
-* [Ссылка на сайт]( https://hansolo27.github.io/mesto/)
+* [Ссылка на сайт](https://hansolo27.github.io/mesto/)
 
 
 

@@ -1,10 +1,8 @@
 let popup = document.querySelector(".popup");
-popup.classList.remove("popup_opened");
-let nameInput = document.querySelector(".popup__name_title");
 
-let infoInput = document.querySelector(".popup__name_subtitle");
+let nameInput = document.querySelector(".popup_save_name");
 
-let popupSave = document.querySelector(".popup__save");
+let infoInput = document.querySelector(".popup_save_info");
 
 let profileName = document.querySelector(".profile__title");
 let popupForm = document.querySelector(".popup__form")
@@ -18,20 +16,18 @@ function popupOpen() {
   infoInput.value = profileInfo.textContent
 }
 
-function popupCloused() {
+function popupClosed() {
   popup.classList.remove("popup_opened")
 }
 
 function formSubmitHandler(evt) { 
   evt.preventDefault();
-  nameInput = nameInput.value
-  infoInput = infoInput.value
-  profileName.textContent = nameInput
-  profileInfo.textContent = infoInput
-  popupCloused()
+  profileName.textContent = nameInput.value
+  profileInfo.textContent = infoInput.value
+  popupClosed()
 }
 
-popupClose.addEventListener("click", popupCloused);
+popupClose.addEventListener("click", popupClosed);
 popupEdit.addEventListener("click", popupOpen);
 popupForm.addEventListener("submit", formSubmitHandler);
 

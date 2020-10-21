@@ -10,6 +10,7 @@
   border: 0;
   margin: 0;
   padding: 0;
+  cursor:pointer;
 }
 .popup__close:hover{
   opacity: 60%;

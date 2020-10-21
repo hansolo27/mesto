@@ -13,6 +13,7 @@
   color:white;
   font-size: 18px;
   line-height: 21.78px;
+  cursor:pointer;
 }
 .popup__save:hover{
   background-color: rgba(0, 0, 0, 0.8);

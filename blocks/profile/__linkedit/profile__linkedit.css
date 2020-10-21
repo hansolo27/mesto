@@ -10,6 +10,7 @@
   background-image: url('../../../images/Vector\(3\).svg');
   background-repeat: no-repeat;
   background-position: center;
+  cursor:pointer;
 }
 .profile__linkedit:hover{
   opacity: 60%;
