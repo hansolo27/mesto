@@ -1,6 +1,6 @@
 .places__row{
-  max-width:246px;
   display: flex;
-  margin: 25px auto 31px auto;
-  justify-content: space-between; 
+  justify-content: space-between;
+  flex:0 1 auto;
+  padding: 25px 15px 31px 21px;
 }
