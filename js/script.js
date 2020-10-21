@@ -1,8 +1,8 @@
 let popup = document.querySelector(".popup");
 
-let nameInput = document.querySelector(".popup_save_name");
-
-let infoInput = document.querySelector(".popup_save_info");
+let nameInput = document.querySelector(".popup__input_save_name");
+ut
+let infoInput = document.querySelector(".popup__input_save_info");
 
 let profileName = document.querySelector(".profile__title");
 let popupForm = document.querySelector(".popup__form")
