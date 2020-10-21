@@ -1,8 +1,8 @@
 let popup = document.querySelector(".popup");
 popup.classList.remove("popup_opened");
-let nameInput = document.querySelector(".popup_input-name");
+let nameInput = document.querySelector(".popup__name_title");
 
-let infoInput = document.querySelector(".popup_input-info");
+let infoInput = document.querySelector(".popup__name_subtitle");
 
 let popupSave = document.querySelector(".popup__save");
 
