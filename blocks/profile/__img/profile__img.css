@@ -7,8 +7,9 @@
   border-radius:50%;
 }
 
-@media screen and (min-width:320px) and (max-width:600px){
+@media screen and (min-width:320px) and (max-width:882px){
   .profile__img{
+    justify-self: center;
     margin: 0 auto 10.25px auto;
   }
 }

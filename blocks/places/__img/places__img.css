@@ -1,0 +1,8 @@
+.places__img{
+  background-color: white;
+  border: 0;
+}
+.places__img:hover{
+  cursor: pointer;
+  opacity: 50%;
+}
