@@ -9,7 +9,6 @@
 <body class="page">
   <header class="header">
     <img src="./images/Vector(2).svg" alt="логотип" class="header__logo">
-    
   </header>
   <main>
     <section class="profile">
@@ -29,50 +28,7 @@
           </button>
       </div>
     </section>
-    <section class="places">
-      <div class="places__item">
-        <img src="./images/kirill-pershin-1088404-unsplash-min.png" alt="Карачаевск" class="places__bg">
-        <div class="places__row">
-          <h3 class="places__text">Карачаевск</h3>
-          <button type="button" class="places__img"><img src="./images/Vector(5).svg" alt="лайк"></button>
-        </div>
-      </div>
-      <div class="places__item">
-        <img src="./images/kirill-pershin-1404681-unsplash(1)-min.png" alt="Гора Эльбрус" class="places__bg">
-        <div class="places__row">
-          <h3 class="places__text">Гора Эльбрус</h3>
-          <button class="places__img" type="button"><img src="./images/Vector(5).svg" alt="лайк"></button>
-        </div>
-      </div>
-      <div class="places__item">
-        <img src="./images/kirill-pershin-1556355-unsplash(1)-min.png" alt="Домбай" class="places__bg">
-        <div class="places__row">
-          <h3 class="places__text">Домбай</h3>
-          <button class="places__img" type="button"><img src="./images/Vector(5).svg" alt="лайк"></button>
-        </div>
-      </div>
-      <div class="places__item">
-        <img src="./images/kirill-pershin-1404681-unsplash-min.png" alt="Гора Эльбрус" class="places__bg">
-        <div class="places__row">
-          <h3 class="places__text">Гора Эльбрус</h3>
-          <button class="places__img" type="button"><img src="./images/Vector(5).svg" alt="лайк"></button>
-        </div>
-      </div>
-      <div class="places__item">
-        <img src="./images/kirill-pershin-1556355-unsplash(1)-min.png" alt="Домбай" class="places__bg">
-        <div class="places__row">
-          <h3 class="places__text">Домбай</h3>
-          <button class="places__img" type="button"><img src="./images/Vector(5).svg" alt="лайк"></button>
-        </div>
-      </div>
-      <div class="places__item">
-        <img src="./images/kirill-pershin-1088404-unsplash-min.png" alt="Карачаево-Ч..." class="places__bg">
-        <div class="places__row">
-          <h3 class="places__text">Карачаево-Черкессия</h3>
-          <button class="places__img" type="button"><img src="./images/Vector(5).svg" alt="лайк"></button>
-        </div>
-      </div>
-    </section>
+    <section class="places"></section>
   </main>
   <footer class="footer">
     <p class="footer__text">© 2020 Mesto Russia</p>
@@ -89,6 +45,37 @@
       </fieldset>
     </form>
     </div>
+  </div>
+  <div class="popup popup_type_place">
+    <div class="popup__container">
+      <form class="popup__form popup__form_type_place" name="popupform" method="GET" action="#">
+      <button class="popup__close popup__close_type_place" type="button"></button>
+      <fieldset class="popup__row">
+        <h2 class="popup__title">Новое место</h2>
+        <input name="popupInfo" type="text" class="popup__input popup__input_type_place-title">
+        <input name="popupName" type="text" class="popup__input popup__input_type_place-link">
+        <button type="submit" class="popup__save popup__save_type_place">Создать</button>
+      </fieldset>
+    </form>
+    </div>
+  </div>
+  <template>
+  <div class="places__item">
+    <div class="places__bg">
+      <button type="button" class="places__item-delete"></button>
+    </div>
+      <div class="places__row">
+        <h3 class="places__text">Карачаево-Черкессия</h3>
+        <button class="places__img" type="button"></button>
+      </div>
+    </div>
+  </template>
+  <div class="popup popup_type_img">
+  <div class="popup-img__row">
+    <button type="button" class="popup-img__close"></button>
+    <div class="popup-img__bg"></div>
+    <p class="popup-img__text"></p>
+  </div>
   </div>
   <script src="./js/script.js"></script>
 </body>
