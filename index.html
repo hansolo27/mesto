@@ -33,7 +33,7 @@
   <footer class="footer">
     <p class="footer__text">© 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup_type_profile">
     <div class="popup__container">
       <form class="popup__form" name="popupform" method="GET" action="#">
       <button class="popup__close" type="button"></button>
@@ -48,12 +48,12 @@
   </div>
   <div class="popup popup_type_place">
     <div class="popup__container">
-      <form class="popup__form popup__form_type_place" name="popupform" method="GET" action="#">
+      <form class="popup__form popup__form_type_place" name="popupform-place" method="GET" action="#">
       <button class="popup__close popup__close_type_place" type="button"></button>
       <fieldset class="popup__row">
         <h2 class="popup__title">Новое место</h2>
-        <input name="popupInfo" type="text" class="popup__input popup__input_type_place-title">
-        <input name="popupName" type="text" class="popup__input popup__input_type_place-link">
+        <input name="popupInfo" placeholder="Название" type="text" class="popup__input popup__input_type_place-title">
+        <input name="popupName" placeholder="Ссылка на картинку" type="text" class="popup__input popup__input_type_place-link">
         <button type="submit" class="popup__save popup__save_type_place">Создать</button>
       </fieldset>
     </form>
