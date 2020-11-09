@@ -16,6 +16,8 @@ const popupFormPlaceAdd = document.querySelector('.popup__form_type_place');
 const popupPlaceInputTitle = document.querySelector('.popup__input_type_place-title');
 const popupPlaceInputLink = document.querySelector('.popup__input_type_place-link');
 const templ = document.querySelector('template');
+const popupImgBG = popupImg.querySelector('.popup-img__bg');
+const popupImgText = popupImg.querySelector('.popup-img__text');
 
 const initialCards = [
   {
@@ -47,14 +49,16 @@ const initialCards = [
 function createCard(title, link, clone) {
   const cloneCard = clone.content.cloneNode(true);
   cloneCard.querySelector('.places__text').textContent = title;
-  cloneCard.querySelector('.places__bg').setAttribute('style', `background-image: url(${link})`);
+  const placeBG = cloneCard.querySelector('.places__bg');
+  placeBG.setAttribute('style', `background-image: url(${link})`);
   cloneCard.querySelector('.places__item-delete').addEventListener('click', cardDelete);
   cloneCard.querySelector('.places__img').addEventListener('click', likeCard);
-  cloneCard.querySelector('.places__bg').addEventListener('click', function renderClassName(e) { 
+  placeBG.addEventListener('click', function renderClassName(e) { 
     if (e.target.className === 'places__bg') { 
       openImagePopup(title, link);
     }
   });
+  /*если убираю проверку класса то при нажатии удаление карточки открывается и попап с изобр*/
   return cloneCard;
 }
 
@@ -78,8 +82,8 @@ function cardDelete(item) {
 }
 
 function openImagePopup(name, img) {
-  popupImg.querySelector('.popup-img__bg').setAttribute('style', `background-image: url(${img})`);
-  popupImg.querySelector('.popup-img__text').textContent = name;
+  popupImgBG.setAttribute('style', `background-image: url(${img})`);
+  popupImgText.textContent = name;
   openPopup(popupImg)
 }
 
