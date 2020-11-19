@@ -58,7 +58,6 @@ function createCard(title, link, clone) {
       openImagePopup(title, link);
     }
   });
-  /*если убираю проверку класса то при нажатии удаление карточки открывается и попап с изобр*/
   return cloneCard;
 }
 
@@ -136,3 +135,28 @@ popupEdit.addEventListener("click", openPopupEditProfile);
 profileForm.addEventListener("submit", formSubmitHandler);
 addButton.addEventListener("click", openPopupAddCard);
 popupFormPlaceAdd.addEventListener("submit", createNewPlace);
+
+profilePopup.addEventListener('click', (e) => { 
+  if (e.target.classList.contains('popup_type_profile')) { 
+    closePopup(profilePopup)
+  }
+})
+
+profilePopup.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { 
+    closePopup(profilePopup)
+  }
+  
+})
+
+popupAddPlace.addEventListener('click', (e) => { 
+  if (e.target.classList.contains('popup_type_place')) { 
+    closePopup(popupAddPlace)
+  }
+})
+
+popupAddPlace.addEventListener('keydown', (e) => { 
+  if (e.key === 'Escape') { 
+    closePopup(popupAddPlace)
+  }
+})
