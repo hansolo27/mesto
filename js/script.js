@@ -73,8 +73,7 @@ function createCard(title, link, clone, alt) {
 function createNewPlace(e) {
   e.preventDefault();
   places.prepend(createCard(popupPlaceInputTitle.value, popupPlaceInputLink.value, templ, `фотография: ${popupPlaceInputTitle.value}`));
-  const openedPopup = document.querySelector('.popup_opened')
-  closePopup(openedPopup);
+  closePopup(popupAddPlace);
 }
 
 function openPopup(pop) { 
@@ -131,8 +130,7 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value
   profileInfo.textContent = infoInput.value
-  const openedPopup = document.querySelector('.popup_opened')
-  closePopup(openedPopup)
+  closePopup(profilePopup)
 }
 
 function closeByOverlayClick(e) { 
