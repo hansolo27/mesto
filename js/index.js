@@ -15,9 +15,17 @@ const popupCloseImg = document.querySelector('.popup-img__close');
 const popupFormPlaceAdd = document.querySelector('.popup__form_type_place');
 const popupPlaceInputTitle = document.querySelector('.popup__input_type_place-title');
 const popupPlaceInputLink = document.querySelector('.popup__input_type_place-link');
-const templ = document.querySelector('template');
-const popupImgBG = popupImg.querySelector('.popup-img__bg');
-const popupImgText = popupImg.querySelector('.popup-img__text');
+//const templ = document.querySelector('template');
+//const popupImgBG = popupImg.querySelector('.popup-img__bg');
+//const popupImgText = popupImg.querySelector('.popup-img__text');
+
+const configObj = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_type_invalid',
+}
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -51,29 +59,27 @@ const initialCards = [
   }
 ];
 
-function createCard(title, link, clone, alt) {
-  const cloneCard = clone.content.cloneNode(true);
-  cloneCard.querySelector('.places__text').textContent = title;
-  const placeBG = cloneCard.querySelector('.places__bg');
-  placeBG.setAttribute('style', `background-image: url(${link})`);
-  placeBG.setAttribute('title', `${alt}`);
-  const deleteIcon = cloneCard.querySelector('.places__item-delete')
-  deleteIcon.addEventListener('click', () => {
-    cardDelete(deleteIcon)
-  })
-  cloneCard.querySelector('.places__img').addEventListener('click', likeCard);
-  placeBG.addEventListener('click', function renderClassName(e) { 
-    if (e.target.className === 'places__bg') { 
-      openImagePopup(title, link);
-    }
-  });
-  return cloneCard;
+import { Card } from './Card.js';
+import {FormValidator} from './FormValidator.js'
+
+function closePopup(popup) {
+  popup.classList.toggle("popup_opened")
+  document.addEventListener('click', closeByOverlayClick)
+  document.removeEventListener('keydown', closeByEsc)
 }
 
-function createNewPlace(e) {
-  e.preventDefault();
-  places.prepend(createCard(popupPlaceInputTitle.value, popupPlaceInputLink.value, templ, `фотография: ${popupPlaceInputTitle.value}`));
-  closePopup(popupAddPlace);
+function closeByEsc(e) { 
+  if (e.key === 'Escape') { 
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup)
+  }
+}
+
+function closeByOverlayClick(e) { 
+  if (e.target.classList.contains('popup')) { 
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup)
+  }
 }
 
 function openPopup(pop) { 
@@ -81,29 +87,6 @@ function openPopup(pop) {
   document.addEventListener('click', closeByOverlayClick)
   document.addEventListener('keydown', closeByEsc)
 }
-
-function likeCard(item) {
-  item.target.classList.toggle('places__img_like_on');
-}
-
-function cardDelete(e) { 
-  const parent = e.closest('.places__item');
-  parent.remove();
-}
-
-function openImagePopup(name, img) {
-  popupImgBG.setAttribute('style', `background-image: url(${img})`);
-  popupImgText.textContent = name;
-  popupImgBG.setAttribute('title', `фотография: ${name}`);
-  openPopup(popupImg)
-}
-
-function renderCards() { 
-  for (let i = 0; i < initialCards.length; i += 1) { 
-    places.append(createCard(initialCards[i].name, initialCards[i].link, templ, initialCards[i].alt))
-  }
-}
-renderCards()
 
 function openPopupAddCard() { 
   openPopup(popupAddPlace);
@@ -120,12 +103,6 @@ function openPopupEditProfile() {
   infoInput.value = profileInfo.textContent
 }
 
-function closePopup(popup) {
-  popup.classList.remove("popup_opened")
-  document.addEventListener('click', closeByOverlayClick)
-  document.removeEventListener('keydown', closeByEsc)
-}
-
 function formSubmitHandler(evt) { 
   evt.preventDefault();
   profileName.textContent = nameInput.value
@@ -133,18 +110,25 @@ function formSubmitHandler(evt) {
   closePopup(profilePopup)
 }
 
-function closeByOverlayClick(e) { 
-  if (e.target.classList.contains('popup')) { 
-    const openedPopup = document.querySelector('.popup_opened')
-    closePopup(openedPopup)
-  }
+function createNewPlace(e) {
+  e.preventDefault();
+  const obj = {}
+  obj.name = popupPlaceInputTitle.value;
+  obj.link = popupPlaceInputLink.value;
+  obj.alt = `фотография: ${popupPlaceInputTitle.value}`;
+  const newCard = new Card(obj, 'template')
+  places.prepend(newCard.createCard())
+  closePopup(popupAddPlace);
 }
 
-function closeByEsc(e) { 
-  if (e.key === 'Escape') { 
-    const openedPopup = document.querySelector('.popup_opened')
-    closePopup(openedPopup)
-  }
+export function openImagePopup(name, img) {
+  const popupImg = document.querySelector('.popup_type_img');
+  const popupImgBG = popupImg.querySelector('.popup-img__bg');
+  const popupImgText = popupImg.querySelector('.popup-img__text');
+  popupImgBG.setAttribute('style', `background-image: url(${img})`);
+  popupImgText.textContent = name;
+  popupImgBG.setAttribute('title', `фотография: ${name}`);
+  openPopup(popupImg)
 }
 
 popupCloseImg.addEventListener("click", () => {
@@ -160,3 +144,14 @@ popupEdit.addEventListener("click", openPopupEditProfile);
 profileForm.addEventListener("submit", formSubmitHandler);
 addButton.addEventListener("click", openPopupAddCard);
 popupFormPlaceAdd.addEventListener("submit", createNewPlace);
+
+initialCards.forEach(item => { 
+  const cards = new Card(item, 'template');
+  places.append(cards.createCard())
+})
+
+const formElement = Array.from(document.querySelectorAll('.popup__form'))
+formElement.forEach(item => {
+  const validationObject = new FormValidator(configObj, item)
+  validationObject.enableValidation()
+})
