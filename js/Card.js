@@ -1,11 +1,12 @@
-import { openImagePopup } from './index.js'
+
 
 export class Card{
-  constructor(data, cardSelector){
+  constructor(data, cardSelector, func){
     this._name = data.name;
     this._link = data.link;
     this._alt = data.alt;
     this._cardSelector = cardSelector;
+    this._func = func
   }
 
   _getTemplate() {
@@ -15,18 +16,20 @@ export class Card{
   createCard() { 
     this._element = this._getTemplate();
     this._element.querySelector('.places__text').textContent = this._name;
-    this._element.querySelector('.places__bg').setAttribute('style', `background-image: url(${this._link})`)
-    this._element.querySelector('.places__bg').setAttribute('title', `${this._alt}`)
+    this._placesBg = this._element.querySelector('.places__bg');
+    this._placesBg.setAttribute('style', `background-image: url(${this._link})`)
+    this._placesBg.setAttribute('title', `${this._alt}`)
     this.delIcon = this._element.querySelector('.places__item-delete')
     this.likeIcon = this._element.querySelector('.places__img')
-    this._bgCard = this._element.querySelector('.places__bg')
+    //this._bgCard = this._element.querySelector('.places__bg')
     this._setEvents()
     return this._element
   }
 
   _removeCard(e) { 
     const parent = e.closest('.places__item')
-    parent.remove();
+    parent.remove()
+    this._element = null
   }
 
   _likedCard() { 
@@ -50,9 +53,9 @@ export class Card{
     this.likeIcon.addEventListener('click', () => { 
       this._likedCard()
     })
-    this._bgCard.addEventListener('click', (e) => {
+    this._placesBg.addEventListener('click', (e) => {
       if (e.target.className === 'places__bg') {
-          openImagePopup(this._name, this._link)
+          this._func(this._name, this._link)
       }
     })
   }
