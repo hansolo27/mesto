@@ -148,8 +148,8 @@ initialCards.forEach(item => {
   places.append(cards.createCard())
 })
 
-const formElement = Array.from(document.querySelectorAll('.popup__form'))
-const validationProfile = new FormValidator(configObj, formElement[0])
-const validationAddCard = new FormValidator(configObj, formElement[1])
+const validationProfile = new FormValidator(configObj, profileForm)
+const validationAddCard = new FormValidator(configObj, popupFormPlaceAdd)
 validationProfile.enableValidation();
 validationAddCard.enableValidation();
+

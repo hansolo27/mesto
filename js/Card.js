@@ -19,8 +19,8 @@ export class Card{
     this._placesBg = this._element.querySelector('.places__bg');
     this._placesBg.setAttribute('style', `background-image: url(${this._link})`)
     this._placesBg.setAttribute('title', `${this._alt}`)
-    this.delIcon = this._element.querySelector('.places__item-delete')
-    this.likeIcon = this._element.querySelector('.places__img')
+    this._delIcon = this._element.querySelector('.places__item-delete')
+    this._likeIcon = this._element.querySelector('.places__img')
     //this._bgCard = this._element.querySelector('.places__bg')
     this._setEvents()
     return this._element
@@ -33,7 +33,7 @@ export class Card{
   }
 
   _likedCard() { 
-    this.likeIcon.classList.toggle('places__img_like_on')
+    this._likeIcon.classList.toggle('places__img_like_on')
   }
   /*
   _openImagePopup(name, img) {
@@ -48,9 +48,9 @@ export class Card{
 
   _setEvents() { 
     this._element.querySelector('.places__item-delete').addEventListener('click', () => { 
-      this._removeCard(this.delIcon)
+      this._removeCard(this._delIcon)
     })
-    this.likeIcon.addEventListener('click', () => { 
+    this._likeIcon.addEventListener('click', () => { 
       this._likedCard()
     })
     this._placesBg.addEventListener('click', (e) => {
