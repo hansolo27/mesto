@@ -1,0 +1,11 @@
+.places__img{
+  background-color: white;
+  border: 0;
+  width:20.76px;
+  height: 18.13px;
+  background:url('../../../images/Vector(5).svg') center/cover no-repeat;
+}
+.places__img:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}

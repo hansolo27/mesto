@@ -1,0 +1,13 @@
+.places__item-delete{
+  position:absolute;
+  border:0;
+  right:15px;
+  top:18px;
+  background:url('../../../images/Trash.svg') center/ cover  no-repeat;
+  height: 19.3px;
+}
+
+.places__item-delete:hover{
+  cursor:pointer;
+  opacity:0.6;
+}
