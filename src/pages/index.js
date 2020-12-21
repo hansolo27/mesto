@@ -22,21 +22,21 @@ const popupPlace = new PopupWithForm('.popup_type_place', (arr) => {
   obj.link = arr.popupName;
   obj.alt = `фотография: ${arr.popupInfo}`;
   const newCard = new Card(obj, 'template',()=> {
-  const popupImage = new PopupWithImage('.popup_type_img');
   popupImage.open(arr.popupInfo, arr.popupName)
   })
-  places.prepend(newCard.createCard());
+  section.addItem(newCard.createCard())
   popupPlace.close()
   popupPlace.clear()
 })
 popupPlace.setEventListeners()
 
+const popupImage = new PopupWithImage('.popup_type_img')
+
 const section = new Section({
   items: initialCards, renderer: (i) => { 
     const cards = new Card(i, 'template', () => { 
-      const popupImage = new PopupWithImage('.popup_type_img')
-      console.log(popupImage)
       popupImage.open(i.name, i.link)
+      popupImage.setEventListeners()
     });
     const cardElement = cards.createCard();
     section.addItem(cardElement);

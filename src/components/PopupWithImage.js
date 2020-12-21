@@ -1,18 +1,21 @@
 import Popup from './Popup.js';
 export default class PopupWithImage extends Popup { 
-  open(name, img) { 
-    const popupImg = document.querySelector('.popup_type_img');
-    const popupImgBG = popupImg.querySelector('.popup-img__bg');
-    const popupImgText = popupImg.querySelector('.popup-img__text');
-    popupImgBG.setAttribute('style', `background-image: url(${img})`);
-    popupImgText.textContent = name;
-    popupImgBG.setAttribute('title', `фотография: ${name}`);
-    this._selector.classList.add('popup_opened');
-    this.setEventListeners()
+  constructor(popupSelector) {
+    super(popupSelector)
+    this._popupImgBG = this._popupElement.querySelector('.popup-img__bg');
+    this._popupImgText = this._popupElement.querySelector('.popup-img__text');
   }
+  open(name, img) { 
+    this._popupImgBG.setAttribute('style', `background-image: url(${img})`);
+    this._popupImgText.textContent = name;
+    this._popupImgBG.setAttribute('title', `фотография: ${name}`);
+    super.open()
+    document.addEventListener('keydown', this._handleEscClose)
+  }
+  
   setEventListeners() {
     super.setEventListeners()
-    this._selector.querySelector('.popup-img__close').addEventListener('click', () => {
+    this._popupElement.querySelector('.popup-img__close').addEventListener('click', () => {
       this.close()
     })
   }

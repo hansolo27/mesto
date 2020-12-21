@@ -7,7 +7,7 @@ JS.
 Добавил валидацию.
 
 
-* [Ссылка на сайт](https://hansolo27.github.io/mesto/)
+* [Ссылка](https://hansolo27.github.io/mesto/)
 
 
 
