@@ -31,12 +31,11 @@ const popupPlace = new PopupWithForm('.popup_type_place', (arr) => {
 popupPlace.setEventListeners()
 
 const popupImage = new PopupWithImage('.popup_type_img')
-
+popupImage.setEventListeners()
 const section = new Section({
   items: initialCards, renderer: (i) => { 
     const cards = new Card(i, 'template', () => { 
       popupImage.open(i.name, i.link)
-      popupImage.setEventListeners()
     });
     const cardElement = cards.createCard();
     section.addItem(cardElement);

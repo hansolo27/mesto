@@ -10,7 +10,6 @@ export default class PopupWithImage extends Popup {
     this._popupImgText.textContent = name;
     this._popupImgBG.setAttribute('title', `фотография: ${name}`);
     super.open()
-    document.addEventListener('keydown', this._handleEscClose)
   }
   
   setEventListeners() {
