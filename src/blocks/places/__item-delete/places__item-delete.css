@@ -5,6 +5,10 @@
   top:18px;
   background:url('../../../images/Trash.svg') center/ cover  no-repeat;
   height: 19.3px;
+  display: none;
+}
+.places__item-delete.active{
+  display: block;
 }
 
 .places__item-delete:hover{

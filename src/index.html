@@ -13,11 +13,13 @@
     <section class="profile">
       <div class="profile__row">
         <div class="profile__name">
-          <img src="<%=require('./images/image-min.jpg')%>" alt="жак" class="profile__img">
+          <div class="profile__img-container">
+          <img class="profile__img">
+        </div>
           <div class="profile__container">
               <div>
-                <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <p class="profile__subtitle">Исследователь океана</p>
+                <h1 class="profile__title"></h1>
+                <p class="profile__subtitle"></p>
               </div>
             <button type="button" class="profile__linkedit"></button>
           </div>
@@ -47,6 +49,33 @@
     </form>
     </div>
   </div>
+
+  <div class="popup popup_type_delete">
+    <div class="popup__container">
+      <form class="popup__form" name="popupform" method="GET" action="#" novalidate>
+      <button class="popup__close" type="button"></button>
+      <fieldset class="popup__row">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button type="submit" class="popup__save">Да</button>
+      </fieldset>
+    </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_avatar">
+    <div class="popup__container">
+      <form class="popup__form popup__form_type_place" name="popupform-place" method="GET" action="#" novalidate>
+      <button class="popup__close popup__close_type_place" type="button"></button>
+      <fieldset class="popup__row">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <input required minlength="2" id="input-title" name="popupInfo" placeholder="Название" type="text" class="popup__input popup__input_type_place-title">
+        <span id="input-title-error" class="popup__error"></span>
+        <button type="submit" class="popup__save popup__save_type_place">Сохранить</button>
+      </fieldset>
+    </form>
+    </div>
+  </div>
+
   <div class="popup popup_type_place">
     <div class="popup__container">
       <form class="popup__form popup__form_type_place" name="popupform-place" method="GET" action="#" novalidate>
@@ -69,7 +98,10 @@
     </div>
       <div class="places__row">
         <h3 class="places__text">Карачаево-Черкессия</h3>
+        <div class="places__like">
         <button class="places__img" type="button"></button>
+        <span class="places__like_value"></span>
+        </div>
       </div>
     </div>
   </template>

@@ -26,6 +26,11 @@ export default class Api{
         avatar: link
       })
     })
+    .then((res)=>{
+      if(res.ok){
+        return res.json()
+      }
+    })
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
@@ -123,6 +128,9 @@ export default class Api{
         name: nameRend,
         link: linkRend
       })
+    })
+    .then((res)=>{
+      return res.json()
     })
     return Promise.reject(`Ошибка: ${res.status}`);
   }

@@ -1,0 +1,26 @@
+.profile__img-container{
+    position: relative;
+}
+
+.profile__img-container:hover:before{
+    content:'';
+    width: 100%;
+    position: absolute;
+    cursor:pointer;
+    height: 100%;
+    top:0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .profile__img-container:hover:after{
+    content:'';
+    width: 26px;
+    position: absolute;
+    cursor:pointer;
+    height: 26px;
+    top:35%;
+    left: 35%;
+    z-index: 2;
+    background:url('../../../images/pen.svg') center/cover no-repeat;
+  }

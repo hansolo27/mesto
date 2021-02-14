@@ -52,5 +52,7 @@ export const places = document.querySelector('.places');
 //const popupClosePlaceButton = document.querySelector('.popup__close_type_place');
 //const popupCloseImg = document.querySelector('.popup-img__close');
 export const popupFormPlaceAdd = document.querySelector('.popup__form_type_place');
+export const profileImage = document.querySelector('.profile__img');
+export const submitList = document.querySelectorAll('.popup__save');
 //const popupPlaceInputTitle = document.querySelector('.popup__input_type_place-title');
 //const popupPlaceInputLink = document.querySelector('.popup__input_type_place-link');

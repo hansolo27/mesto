@@ -27,7 +27,7 @@ export default class Popup {
   }
 
   setEventListeners() { 
-    document.addEventListener('click', (e) => { 
+    document.addEventListener('mousedown', (e) => { 
       this.closeByOverlayClick(e)
     })
   }
