@@ -2,17 +2,14 @@ export default class Api{
   constructor({ adress, token }){ 
   this._adress = adress;
     this._token = token;
-}
+  }
   getCards() { 
     return fetch(`${this._adress}/cards`, {
       headers: {
         authorization: this._token
       }
     })
-      .then((res) => {
-        return res.json()
-      })
-      return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
   rebootAvatar(link) { 
@@ -26,12 +23,7 @@ export default class Api{
         avatar: link
       })
     })
-    .then((res)=>{
-      if(res.ok){
-        return res.json()
-      }
-    })
-    return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
 
@@ -41,8 +33,7 @@ export default class Api{
         authorization:this._token
       }
     })
-      .then(res => res.json())
-      return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
 
@@ -58,7 +49,7 @@ export default class Api{
         about: aboutRend
       })
     })
-    return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
 
@@ -69,10 +60,7 @@ export default class Api{
         authorization: this._token
       }
     })
-      .then((res) => { 
-        return res.json
-      })
-      return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
   getLike(idCard) {
@@ -83,10 +71,7 @@ export default class Api{
         'Content-Type': 'application/json',
       }
     })
-      .then((res) => { 
-        return res.json()
-      })
-      return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
   removeLike(idCard) {
@@ -97,10 +82,7 @@ export default class Api{
         'Content-Type': 'application/json'
       }
     })
-      .then((res) => { 
-        return res.json()
-      })
-      return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
   removeCard(idCard) { 
@@ -111,10 +93,7 @@ export default class Api{
         'Content-Type': 'application/json'
       }
     })
-      .then((res) => { 
-        return res.json()
-      })
-      return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
 
   rendCard(nameRend, linkRend) { 
@@ -129,9 +108,13 @@ export default class Api{
         link: linkRend
       })
     })
-    .then((res)=>{
-      return res.json()
-    })
-    return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._getResponseData)
   }
+
+  _getResponseData(res) {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+}
 }
